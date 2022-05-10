@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Send message
+{% endblock %}
+
+{% block main %}
+    
+    <form action="/send" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="name" name="name" placeholder="reciever" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" id="password" name="password" placeholder="password" type="password">
+        </div>
+        <div class="mb-3" style="width=500px">
+            <input autocomplete="off" class="form-control mx-auto w-auto" id="message" name="message" placeholder="message" type="text" >
+        </div>
+        <div class = "row justify-content-center">
+            <div class="col-1">
+                <span>Day</span>
+                    <select name="day" id="day" class="form-control mx-auto w-auto">
+                    {% for i in range(1,32) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="col-1">
+                <span>Hour</span>
+                    <select name="hour" id="hour" class="form-control mx-auto w-auto">
+                    {% for i in range(24) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="col-1">
+                <span>Minutes</span>
+                    <select name="minutes" id="minutes" class="form-control mx-auto w-auto">
+                    {% for i in range(60) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+        </div>
+        <br>
+        <button onclick="f()" class="btn btn-primary" type="submit" id="Confirm">Confirm</button>
+        <button class="btn btn-primary" type="button" disabled id="loading" style="display:none;">
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="false"></span>
+            Loading...
+        </button>
+    </form>
+    
+    <div class="position-absolute bottom-0 end-10">
+        <div class="alert alert-info alert-dismissible fade show" role="alert" style="width=300px;">
+            <strong>Your password is secured!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    <script>
+        let hiddenArea = document.getElementById('loading');
+        let submitButton = document.getElementById('Confirm');
+        function f(){  
+                hiddenArea.style.display = "inline-block";
+                submitButton.style.display = "none";
+            }
+    </script>
+{% endblock %}

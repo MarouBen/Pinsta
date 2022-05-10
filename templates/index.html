@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main Page
+{% endblock %}
+
+{% block main %}
+<div class="card text-center">
+    <div class="card-header">
+      Pinsta
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Send a scheduled message</h5>
+      <p class="card-text">In this section you can send a message automatically at a given time to any user on intagram using your login username and your password that you'll be asked for<br>if you want to send an instant message just enter a past date</p>
+      <a href="/send" class="btn btn-primary">Try it out</a>
+    </div>
+    <div class="card-footer text-muted">
+      All your information are secured and not saved 
+    </div>
+</div>
+{% endblock %}
